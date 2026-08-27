@@ -1,0 +1,25 @@
+[project]
+name = "vocalis-ai-worker"
+version = "0.1.0"
+description = "Vocalis AI Python worker service"
+requires-python = ">=3.11"
+dependencies = [
+  "faster-whisper>=1.1.0",
+  "stable-ts>=2.19.0",
+  "demucs-onnx>=0.3.0",
+  "argostranslate>=1.9.0",
+  "pykakasi>=2.2.1",
+  "hangul-romanize>=0.1.0",
+  "pypinyin>=0.51.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+  "integration: real ML model download / inference",
+]
+addopts = "-m 'not integration'"

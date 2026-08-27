@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "vocalis",
+  "version": "0.1.0",
+  "identifier": "com.dimovitus.vocalis",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Vocalis AI",
+        "width": 1280,
+        "height": 900,
+        "minWidth": 960,
+        "minHeight": 700
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: http://asset.localhost https://asset.localhost data:; media-src 'self' asset: http://asset.localhost https://asset.localhost http://127.0.0.1:*; connect-src 'self' ipc: http://ipc.localhost https://ipc.localhost http://127.0.0.1:* ws://127.0.0.1:*",
+      "devCsp": "default-src 'self' http://127.0.0.1:* ws://127.0.0.1:*; script-src 'self' 'unsafe-inline' http://127.0.0.1:*; style-src 'self' 'unsafe-inline' http://127.0.0.1:*; img-src 'self' asset: http://asset.localhost https://asset.localhost data: http://127.0.0.1:*; media-src 'self' asset: http://asset.localhost https://asset.localhost http://127.0.0.1:*; connect-src 'self' ipc: http://ipc.localhost https://ipc.localhost http://127.0.0.1:* ws://127.0.0.1:*",
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$APPDATA/vocalis/**",
+          "$HOME/.local/share/vocalis/**",
+          "$DATA/vocalis/**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
